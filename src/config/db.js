@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize("countries", "postgres", "2251", {
- port: 6651,
+ port: process.env.PORT,
  user: "postgres",
  password: "2251",
  host: "127.0.0.1",
