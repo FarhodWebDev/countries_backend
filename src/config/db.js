@@ -1,12 +1,11 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize("countries", "postgres", "2251", {
- port: process.env.PORT,
+ port: 6651,
  user: "postgres",
  password: "2251",
- host: "127.0.0.1",
+ host: "localhost",
  database: "countries",
- dialect: "postgres",
 });
 
 try {
