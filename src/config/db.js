@@ -7,6 +7,7 @@ const db = new Sequelize("countries", "postgres", "2251", {
  host: "localhost",
  database: "countries",
  dialect: "postgres",
+ address: "host",
 });
 
 try {
