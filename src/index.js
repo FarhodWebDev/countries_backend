@@ -3,6 +3,8 @@ import express from "express";
 import countryRouter from "./routes/country.routes.js";
 const app = express();
 
+const port = process.env.PORT || 8864;
+
 app.use(express.json({ limit: "50mb" }));
 
 app.get("/", (req, res) => {
@@ -50,6 +52,6 @@ let data = [];
 //  }
 // });
 
-app.listen(8864, () => {
+app.listen(port, () => {
  console.log("server is running...");
 });
