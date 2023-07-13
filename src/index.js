@@ -1,6 +1,9 @@
 import express from "express";
 import Country from "./models/countryModel.js";
 import countryRouter from "./routes/country.routes.js";
+
+const fetch = require("node-fetch");
+
 const app = express();
 
 const port = process.env.PORT || 8864;
