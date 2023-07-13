@@ -39,7 +39,7 @@ const Country = db.define("country", {
   allowNull: true,
  },
  flag: {
-  type: DataTypes.STRING,
+  type: DataTypes.JSON,
   allowNull: true,
  },
  currency: {

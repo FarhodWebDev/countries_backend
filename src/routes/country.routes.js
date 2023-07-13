@@ -22,7 +22,7 @@ countryRouter.get("/name/:name", async (req, res) => {
 
   res.send(country);
  } catch (error) {
-  res.status(400).send(error.message);
+  res.status(400).send(error);
  }
 });
 

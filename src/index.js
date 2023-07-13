@@ -42,7 +42,10 @@ await data?.forEach((item) => {
    capital: capital ? capital[0] : null,
    region: region,
    subRegion: subregion,
-   flag: flags.png,
+   flag: {
+    png: flags.png,
+    alt: flags.alt,
+   },
    population: population,
    nativeName: name?.nativeName && Object.values(name.nativeName)[0]?.common,
    currency: currencies && Object.values(currencies)[0]?.name,
