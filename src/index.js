@@ -1,8 +1,7 @@
 import express from "express";
 import Country from "./models/countryModel.js";
 import countryRouter from "./routes/country.routes.js";
-
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 const app = express();
 
@@ -22,7 +21,7 @@ try {
  const req = await fetch("https://restcountries.com/v3.1/all");
  data = await req.json();
 } catch (e) {
- console.log(e.message);
+ console.log(e);
 }
 
 await data?.forEach((item) => {
