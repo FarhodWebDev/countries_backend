@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
  res.send("Welcome to World!");
 });
 
-app.use("/country", countryRouter);
+app.use("/countries", countryRouter);
 
 let data = [];
 
