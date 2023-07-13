@@ -1,28 +1,35 @@
 //
 
 import express from "express";
-// import Country from "../models/countryModel.js";
-import db from "../config/db.js";
+import Country from "../models/countryModel.js";
 
 const countryRouter = express.Router();
 
-const results = await db.query("SELECT * FROM countries", {
- type: db.QueryTypes.SELECT,
-});
-
 countryRouter.get("/", async (req, res) => {
  try {
-  res.status(200).send(results);
-  //
+  const country = await Country.findAll();
+  res.send(country);
  } catch (error) {
-  res.status(400).send(error.message);
+  res.send(error.message);
  }
 });
 
 countryRouter.get("/name/:name", async (req, res) => {
  try {
-  const country = results.filter((obj) => {
-   return obj.name.toLowerCase().includes(req.params.name);
+  const country = await Country.findOne({
+   where: { name: req.params.name },
+  });
+
+  res.send(country);
+ } catch (error) {
+  res.status(400).send(error.message);
+ }
+});
+
+countryRouter.get("/currency/:cop", async (req, res) => {
+ try {
+  const country = await Country.findOne({
+   where: { currency: req.params.cop },
   });
   res.send(country);
   //
@@ -31,11 +38,12 @@ countryRouter.get("/name/:name", async (req, res) => {
  }
 });
 
-countryRouter.get("/capital/:capital", async (req, res) => {
+countryRouter.get("/lang/:lang", async (req, res) => {
  try {
-  const country = results.filter((obj) => {
-   return obj.capital.toLowerCase().includes(req.params.capital);
+  const country = await Country.findOne({
+   where: { language: req.params.lang },
   });
+
   res.send(country);
   //
  } catch (error) {
@@ -43,25 +51,25 @@ countryRouter.get("/capital/:capital", async (req, res) => {
  }
 });
 
-countryRouter.get("/currency/:cur", async (req, res) => {
+countryRouter.get("/capital/:cap", async (req, res) => {
  try {
-  const country = results.filter((obj) => {
-   return obj.currency
-    ? obj.currency.toLowerCase().includes(req.params.cur)
-    : null;
+  const country = await Country.findOne({
+   where: { capital: req.params.cap },
   });
+
   res.send(country);
   //
  } catch (error) {
-  res.status(400).send({ ...error });
+  res.status(400).send(error.message);
  }
 });
 
-countryRouter.get("/region/:region", async (req, res) => {
+countryRouter.get("/region/:reg", async (req, res) => {
  try {
-  const country = results.filter((obj) => {
-   return obj.region.toLowerCase().includes(req.params.region);
+  const country = await Country.findAll({
+   where: { region: req.params.reg },
   });
+
   res.send(country);
   //
  } catch (error) {
