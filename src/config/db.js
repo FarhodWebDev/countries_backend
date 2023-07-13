@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize(process.env.DBLink, "postgres", "2251", {
+const db = new Sequelize("countries", "postgres", "2251", {
  port: 6651,
  user: "postgres",
  password: "2251",
- host: "localhost",
- database: process.env.DBLink,
+ host: "127.0.0.1",
+ database: "countries",
  dialect: "postgres",
 });
 
