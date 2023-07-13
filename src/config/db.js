@@ -14,7 +14,7 @@ import { Sequelize } from "sequelize";
 
 //  --- ONLINE ---
 const db = new Sequelize(
-"postgres://countries_udrl_user:g45gjdLAG4O596ysDms7JE20pIQ8kdij@dpg-cime03lgkuvgvhfalq0g-a.oregon-postgres.render.com/countries_udrl"
+ "postgres://countries_udrl_user:g45gjdLAG4O596ysDms7JE20pIQ8kdij@dpg-cime03lgkuvgvhfalq0g-a.oregon-postgres.render.com/countries_udrl"
 );
 
 try {
